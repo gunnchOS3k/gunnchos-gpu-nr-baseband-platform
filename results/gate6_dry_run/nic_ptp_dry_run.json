@@ -1,5 +1,12 @@
 {
-  "protocol": "nic_ptp",
-  "status": "PENDING_LAB",
-  "notes": "Awaiting lab NIC/PTP instruments"
+  "artifact": "nic_ptp_dry_run",
+  "gate": "gate6-dry-run",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_timings_present": false,
+  "nic_ptp_measured": false,
+  "sdr_ru_measured": false,
+  "notes": "NIC/PTP lab path not instrumented; PENDING_LAB / dry-run only",
+  "timestamp": "2026-07-29T20:33:09Z"
 }

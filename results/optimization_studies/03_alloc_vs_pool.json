@@ -1,0 +1,12 @@
+{
+  "study_id": "alloc_vs_pool",
+  "controlled_variable": "alloc_vs_pool",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "gpu_claim": "none",
+  "hypothesis": "Reusing a pool beats per-iteration heap alloc",
+  "before": {"name": "heap_alloc", "median_us": 18.292, "p90_us": 19.916, "p95_us": 20.834, "p99_us": 21.834, "max_us": 22.167},
+  "after": {"name": "reuse_pool", "median_us": 0.042, "p90_us": 0.042, "p95_us": 0.042, "p99_us": 0.042, "max_us": 0.042},
+  "conclusion": "Pool reuse reduces median us versus fresh allocations",
+  "status": "PASS"
+}

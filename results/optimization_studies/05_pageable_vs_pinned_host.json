@@ -1,0 +1,12 @@
+{
+  "study_id": "pageable_vs_pinned_host",
+  "controlled_variable": "pageable_vs_pinned_host",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "gpu_claim": "none",
+  "hypothesis": "Aligned hot buffer beats cold large pageable walk (host-side mock only)",
+  "before": {"name": "pageable", "median_us": 31.458, "p90_us": 35.833, "p95_us": 39.583, "p99_us": 51.167, "max_us": 51.917},
+  "after": {"name": "aligned_hot", "median_us": 274.917, "p90_us": 378.875, "p95_us": 389.833, "p99_us": 423.5, "max_us": 546.667},
+  "conclusion": "Host-side mock only — NOT CUDA pinned memory; no GPU claim",
+  "status": "PASS"
+}

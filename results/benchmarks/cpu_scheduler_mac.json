@@ -1,0 +1,15 @@
+{
+  "benchmark": "cpu_scheduler_mac",
+  "status": "PASS",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "median_us": 0.458,
+  "p90_us": 0.5,
+  "p95_us": 0.5,
+  "p99_us": 0.584,
+  "max_us": 15.5,
+  "jitter_us": 0.378052,
+  "throughput": 2.15139e+06,
+  "deadline_misses": 0,
+  "notes": "MacScheduler beyond PF-ratio-only"
+}

@@ -2,22 +2,34 @@
 #include "nr_bb/ldpc.hpp"
 #include "nr_bb/llr.hpp"
 
-TEST_CASE("LDPC encode/decode noiseless", "[ldpc]") {
-  nr_bb::BitVec info = {1, 0, 1, 1, 0, 0, 1, 0};
-  auto cw = nr_bb::ldpc_encode(info);
-  REQUIRE(cw.size() == 16);
-  auto llr = nr_bb::bits_to_llr(cw, 8.0);
-  auto hat = nr_bb::ldpc_decode(llr);
+TEST_CASE("NR LDPC BG2 encode syndrome + noiseless decode", "[ldpc][standards]") {
+  nr_bb::LdpcParams p{.bg = nr_bb::BaseGraph::BG2, .zc = 2};
+  const auto g = nr_bb::ldpc_graph_info(p);
+  REQUIRE(g.kb == 4);
+  REQUIRE(g.zc == 2);
+  nr_bb::BitVec info(static_cast<size_t>(g.kb * g.zc));
+  for (size_t i = 0; i < info.size(); ++i) info[i] = static_cast<uint8_t>((i * 3) & 1);
+  auto cw = nr_bb::ldpc_encode(info, p);
+  REQUIRE(cw.size() == static_cast<size_t>(g.nb * g.zc));
+  REQUIRE(nr_bb::ldpc_syndrome_ok(cw, p));
+  auto llr = nr_bb::bits_to_llr(cw, 12.0);
+  auto hat = nr_bb::ldpc_decode(llr, p);
   REQUIRE(hat == info);
 }
 
-TEST_CASE("LDPC reference vector", "[ldpc]") {
-  nr_bb::BitVec info(8, 0);
-  auto ref = nr_bb::ldpc_make_reference(info);
-  REQUIRE(ref.codeword.size() == 16);
-  REQUIRE(ref.provenance.find("self-generated") != std::string::npos);
+TEST_CASE("NR LDPC BG1 scaffold encode", "[ldpc][standards]") {
+  nr_bb::LdpcParams p{.bg = nr_bb::BaseGraph::BG1, .zc = 2};
+  const auto g = nr_bb::ldpc_graph_info(p);
+  nr_bb::BitVec info(static_cast<size_t>(g.kb * g.zc), 0);
+  info[0] = 1;
+  info[3] = 1;
+  auto ref = nr_bb::ldpc_make_reference(info, p);
+  REQUIRE(ref.codeword.size() == static_cast<size_t>(g.nb * g.zc));
+  REQUIRE(ref.provenance.find("BG1") != std::string::npos);
+  REQUIRE(nr_bb::ldpc_syndrome_ok(ref.codeword, p));
 }
 
-TEST_CASE("LDPC rejects wrong length", "[ldpc]") {
-  REQUIRE_THROWS_AS(nr_bb::ldpc_encode({1, 0, 1}), nr_bb::Error);
+TEST_CASE("NR LDPC rejects wrong info length", "[ldpc]") {
+  nr_bb::LdpcParams p{.bg = nr_bb::BaseGraph::BG2, .zc = 2};
+  REQUIRE_THROWS_AS(nr_bb::ldpc_encode({1, 0, 1}, p), nr_bb::Error);
 }

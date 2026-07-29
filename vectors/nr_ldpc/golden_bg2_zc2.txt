@@ -1,0 +1,4 @@
+provenance=BG2-compact scaffold (TS 38.212 §5.3.2 QC lifting mechanics); self-generated
+info=10100100
+codeword=1010010010110000
+syndrome_ok=true

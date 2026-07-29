@@ -1,20 +1,24 @@
 #pragma once
 /**
  * @file channel_estimation.hpp
- * @brief LS channel estimation from DMRS.
- *
- * TRACEABILITY NOTE: Educational LS estimator. Not a claim of NR DMRS-based
- * channel estimation conformance (no interpolation/filtering model claim).
+ * @brief LS pilots + ZF/MMSE scalar channel helpers for the PHY reference path.
  */
 #include "nr_bb/types.hpp"
 #include <vector>
 
 namespace nr_bb {
 
-/** LS estimate per subcarrier: Y / X for DMRS tones. */
 ComplexVec ls_channel_estimate(const ComplexVec& rx_dmrs, const ComplexVec& tx_dmrs);
-
-/** Expand per-SC estimate to a time-frequency grid by hold. */
 std::vector<ComplexVec> hold_interpolate(const ComplexVec& h_sc, int n_symb);
+
+/** Linear interpolate H across subcarriers given pilot indices. */
+ComplexVec interpolate_frequency(const ComplexVec& h_pilots, const std::vector<int>& pilot_idx,
+                                 int n_sc);
+
+/** Per-tone ZF equalizer: y / H. */
+ComplexVec equalize_zf_tones(const ComplexVec& y, const ComplexVec& H);
+
+/** Per-tone MMSE: y * conj(H) / (|H|^2 + σ²). */
+ComplexVec equalize_mmse_tones(const ComplexVec& y, const ComplexVec& H, double noise_var);
 
 }  // namespace nr_bb

@@ -1,0 +1,12 @@
+{
+  "study_id": "dft_vs_fft",
+  "controlled_variable": "dft_vs_fft",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "gpu_claim": "none",
+  "hypothesis": "Radix-2 FFT beats naive DFT for N=64",
+  "before": {"name": "naive_dft", "median_us": 32.958, "p90_us": 34.083, "p95_us": 34.833, "p99_us": 36.291, "max_us": 40.167},
+  "after": {"name": "fft_radix2", "median_us": 0.708, "p90_us": 0.75, "p95_us": 1.041, "p99_us": 1.959, "max_us": 2.333},
+  "conclusion": "FFT replaces educational DFT on acceptance path",
+  "status": "PASS"
+}

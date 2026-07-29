@@ -1,0 +1,10 @@
+{
+  "gate": "gate4-cuda-build",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_timings_present": false,
+  "notes": "No nvcc/nvidia-smi — CUDA static build blocked on this host",
+  "host": "Darwin-arm64",
+  "timestamp": "2026-07-29T20:33:10Z"
+}

@@ -1,11 +1,14 @@
-# Draft issue: FAPI sequencing validator helper
+# Draft issue: FAPI sequencing validator (research port)
 
 ## Summary
-Add an optional test helper that validates FAPI-like message ordering for
-CONFIG/START/TTI/TX_DATA/CRC paths using fixtures.
+Research-bounded FAPI-like state machine often accepts out-of-order TX before
+CONFIG/START. Propose a small JSONL-driven sequencing validator with negative
+fixtures for education / integration tests.
 
-## Motivation
-Catch state-machine regressions in integration tests.
+## Acceptance
+- Happy path CONFIG→START→TX
+- TX before START → ERROR
+- Version field checked
+- No performance regression
 
-## Out of scope
-Not a claim of SCF FAPI certification.
+**Upstream status:** DOCUMENTED_IMPLEMENTATION (not filed yet).
