@@ -5,8 +5,8 @@
   "timing_source": "cpu_synthetic",
   "gpu_claim": "none",
   "hypothesis": "4-way unroll reduces loop overhead vs scalar product",
-  "before": {"name": "scalar", "median_us": 1002.38, "p90_us": 1187.83, "p95_us": 1261.83, "p99_us": 1754.71, "max_us": 3891.5},
-  "after": {"name": "unrolled4", "median_us": 250.625, "p90_us": 282.958, "p95_us": 310.125, "p99_us": 569.792, "max_us": 757.333},
+  "before": {"name": "scalar", "median_us": 1024.62, "p90_us": 1309.58, "p95_us": 1341.71, "p99_us": 1488.58, "max_us": 1518.5},
+  "after": {"name": "unrolled4", "median_us": 248.083, "p90_us": 261.459, "p95_us": 297.25, "p99_us": 316.708, "max_us": 322.791},
   "conclusion": "Unrolled accumulate typically lowers median latency on CPU",
   "status": "PASS"
 }

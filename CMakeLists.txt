@@ -84,9 +84,11 @@ if(NR_BB_BUILD_EDUCATIONAL)
   add_library(nr_bb_edu
     educational/src/ldpc_short.cpp
     educational/src/naive_dft.cpp
-    educational/src/binary_pam.cpp)
+    educational/src/binary_pam.cpp
+    educational/nr_style_compact_ldpc/src/compact_qc_ldpc.cpp)
   target_include_directories(nr_bb_edu PUBLIC
     educational/include
+    educational/nr_style_compact_ldpc/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include)
   target_link_libraries(nr_bb_edu PUBLIC nr_bb)
 endif()

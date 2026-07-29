@@ -1,0 +1,56 @@
+name: self-hosted-nvidia-gpu
+
+# Labels: self-hosted, nvidia-gpu
+# Without a matching runner, do NOT block PR CI — ubuntu stub emits BLOCKED_GPU_RUNNER.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "cuda/**"
+      - ".github/workflows/self-hosted-nvidia-gpu.yml"
+  pull_request:
+    paths:
+      - "cuda/**"
+      - ".github/workflows/self-hosted-nvidia-gpu.yml"
+
+jobs:
+  blocked-stub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Emit BLOCKED_GPU_RUNNER
+        run: |
+          mkdir -p results/benchmarks
+          ./scripts/emit_pending_json.sh BLOCKED_GPU_RUNNER self-hosted-nvidia-gpu-stub \
+            results/benchmarks/self_hosted_gpu_stub.json \
+            "Workflow present; self-hosted nvidia-gpu runner not attached — no fabricated GPU timings"
+          cat results/benchmarks/self_hosted_gpu_stub.json
+
+  gpu-lab:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: [self-hosted, nvidia-gpu]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detect GPU runner
+        id: detect
+        run: |
+          if ! command -v nvidia-smi >/dev/null 2>&1; then
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: BLOCKED_GPU_RUNNER fallback
+        if: steps.detect.outputs.available != 'true'
+        run: |
+          mkdir -p results/benchmarks
+          ./scripts/emit_pending_json.sh BLOCKED_GPU_RUNNER self-hosted-nvidia-gpu \
+            results/benchmarks/self_hosted_gpu.json \
+            "workflow_dispatch on label self-hosted,nvidia-gpu but nvidia-smi unavailable"
+          cat results/benchmarks/self_hosted_gpu.json
+      - name: CUDA build + equivalence (lab only)
+        if: steps.detect.outputs.available == 'true'
+        run: |
+          cmake -G Ninja -B build-gpu -DNR_BB_ENABLE_CUDA=ON -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-gpu
+          ./scripts/cuda_equivalence.sh

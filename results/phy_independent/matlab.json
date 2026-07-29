@@ -1,0 +1,11 @@
+{
+  "adapter": "matlab",
+  "dependency": "MATLAB + 5G Toolbox",
+  "vectors": [
+    "nrLDPCEncode",
+    "nrRateMatchLDPC"
+  ],
+  "metrics": {},
+  "notes": "MATLAB not on PATH; comparison pending.",
+  "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+}

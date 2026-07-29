@@ -1,6 +1,7 @@
 .PHONY: bootstrap test reference-vectors sanitizers fuzz \
 	gate4-cpu-reference gate4-cuda-build gate4-gpu \
 	optimization-study-cpu optimization-study-gpu \
+	validate-phy-independent cuda-correctness cuda-equivalence \
 	gate6-dry-run paper artifact reproduce-clean smoke format orchestrator
 
 bootstrap:
@@ -40,6 +41,13 @@ optimization-study-gpu:
 	./scripts/emit_pending_json.sh BLOCKED_HARDWARE optimization-study-gpu \
 	  results/optimization_studies/07_gpu_blocked.json \
 	  "No NVIDIA GPU — CPU studies only on this host"
+
+validate-phy-independent:
+	python3 ./scripts/validate_phy_independent.py
+
+cuda-correctness cuda-equivalence:
+	chmod +x ./scripts/cuda_equivalence.sh
+	./scripts/cuda_equivalence.sh
 
 orchestrator: bootstrap
 	cmake --build --preset cpu --target nr_bb_orchestrator

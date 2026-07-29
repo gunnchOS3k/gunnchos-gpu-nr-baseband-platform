@@ -1,0 +1,11 @@
+{
+  "adapter": "srsran",
+  "dependency": "srsRAN Project CLI / libraries",
+  "vectors": [
+    "fapi_sequencing",
+    "scramble_gold"
+  ],
+  "metrics": {},
+  "notes": "srsRAN binaries not on PATH; comparison pending.",
+  "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+}

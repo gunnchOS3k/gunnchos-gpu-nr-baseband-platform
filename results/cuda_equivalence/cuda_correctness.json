@@ -1,0 +1,8 @@
+{
+  "harness": "cuda_correctness",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "gpu_timings_present": false,
+  "numeric_gpu_claim": false,
+  "notes": "No nvcc and/or no NVIDIA GPU on this host (Apple M2)"
+}

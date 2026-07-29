@@ -1,0 +1,11 @@
+{
+  "adapter": "sionna",
+  "dependency": "sionna (Apache-2.0)",
+  "vectors": [
+    "ldpc_bg2_zc2_self",
+    "qpsk_llr_unit"
+  ],
+  "metrics": {},
+  "notes": "Sionna not installed on this host; comparison pending.",
+  "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+}

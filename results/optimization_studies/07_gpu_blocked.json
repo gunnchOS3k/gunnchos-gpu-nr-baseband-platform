@@ -1,10 +1,7 @@
 {
-  "gate": "optimization-study-gpu",
+  "study_id": "gpu_opt_study",
   "status": "BLOCKED_HARDWARE",
   "fail_closed": true,
-  "physical_pass": false,
   "gpu_timings_present": false,
-  "notes": "No NVIDIA GPU — CPU studies only on this host",
-  "host": "Darwin-arm64",
-  "timestamp": "2026-07-29T20:33:10Z"
+  "notes": "No NVIDIA GPU — optimization-study-gpu emits pending JSON only"
 }
