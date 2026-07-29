@@ -1,0 +1,14 @@
+{
+  "benchmark": "cpu_ofdm_64",
+  "status": "PASS",
+  "platform": "cpu",
+  "median_us": 66.417,
+  "p90_us": 70.584,
+  "p95_us": 85.25,
+  "p99_us": 143.792,
+  "max_us": 219.75,
+  "jitter_us": 18.2818,
+  "throughput": 14317.9,
+  "deadline_misses": 0,
+  "notes": "naive DFT OFDM"
+}

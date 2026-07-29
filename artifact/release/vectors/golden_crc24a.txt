@@ -1,0 +1,5 @@
+# Self-generated CRC24A golden vector; educational; NOT 3GPP conformance
+# TRACEABILITY: poly 0x1864CFB per TS 38.212 Table 5.1-1 (educational use)
+bits=1010110011100101 crc_ok=1
+tolerance=exact_bit
+provenance=self-generated

@@ -1,0 +1,5 @@
+{
+  "protocol": "gpu_nsight",
+  "status": "BLOCKED_HARDWARE",
+  "notes": "No NVIDIA GPU on author Mac host"
+}

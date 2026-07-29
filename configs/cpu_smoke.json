@@ -1,0 +1,7 @@
+{
+  "profile": "cpu_smoke",
+  "fft_size": 64,
+  "mimo": [1, 2, 4],
+  "equalizers": ["ZF", "MMSE", "RZF"],
+  "modulation": ["QPSK", "16QAM", "64QAM", "256QAM"]
+}

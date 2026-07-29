@@ -1,0 +1,5 @@
+{"type":"CONFIG_REQ","sfn":0,"slot":0,"handle":1}
+{"type":"START_REQ","sfn":0,"slot":0,"handle":1}
+{"type":"UL_TTI_REQ","sfn":0,"slot":0,"handle":2}
+{"type":"TX_DATA_REQ","sfn":0,"slot":1,"handle":2}
+{"type":"STOP_REQ","sfn":0,"slot":2,"handle":1}

@@ -1,0 +1,14 @@
+{
+  "benchmark": "cpu_ldpc_short",
+  "status": "PASS",
+  "platform": "cpu",
+  "median_us": 0.25,
+  "p90_us": 0.292,
+  "p95_us": 0.375,
+  "p99_us": 1.5,
+  "max_us": 2.208,
+  "jitter_us": 0.210146,
+  "throughput": 3.52084e+06,
+  "deadline_misses": 0,
+  "notes": "educational (16,8) LDPC"
+}

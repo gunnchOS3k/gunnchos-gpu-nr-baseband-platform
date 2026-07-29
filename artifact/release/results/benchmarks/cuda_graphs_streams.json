@@ -1,0 +1,14 @@
+{
+  "benchmark": "cuda_graphs_streams",
+  "status": "BLOCKED_HARDWARE",
+  "platform": "cpu",
+  "median_us": 0,
+  "p90_us": 0,
+  "p95_us": 0,
+  "p99_us": 0,
+  "max_us": 0,
+  "jitter_us": 0,
+  "throughput": 0,
+  "deadline_misses": 0,
+  "notes": "No NVIDIA GPU/CUDA toolkit on Apple M2 host"
+}

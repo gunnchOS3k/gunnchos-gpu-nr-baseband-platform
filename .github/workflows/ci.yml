@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_gpu:
+        description: "Run GPU job (lab runners only)"
+        required: false
+        default: "false"
+
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [Release, RelWithDebInfo]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build g++
+      - name: Configure
+        run: cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DNR_BB_ENABLE_CUDA=OFF
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Smoke bench
+        run: ./build/nr_bb_bench
+
+  gpu:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_gpu == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: GPU pending
+        run: |
+          mkdir -p results/benchmarks
+          echo '{"status":"PENDING_LAB","notes":"Requires self-hosted NVIDIA runner"}' > results/benchmarks/ci_gpu.json
+          cat results/benchmarks/ci_gpu.json

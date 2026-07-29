@@ -1,0 +1,14 @@
+{
+  "benchmark": "cpu_crc24a",
+  "status": "PASS",
+  "platform": "cpu",
+  "median_us": 13.625,
+  "p90_us": 13.833,
+  "p95_us": 14,
+  "p99_us": 18.625,
+  "max_us": 31.042,
+  "jitter_us": 1.33085,
+  "throughput": 1.86582e+07,
+  "deadline_misses": 0,
+  "notes": "educational CRC24A"
+}

@@ -1,0 +1,82 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "cpu",
+      "displayName": "CPU Release (Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cpu",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "NR_BB_ENABLE_CUDA": "OFF",
+        "NR_BB_WARNINGS_AS_ERRORS": "ON"
+      }
+    },
+    {
+      "name": "cpu-debug",
+      "displayName": "CPU Debug (Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cpu-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "NR_BB_ENABLE_CUDA": "OFF"
+      }
+    },
+    {
+      "name": "cpu-asan",
+      "displayName": "CPU ASan",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cpu-asan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "NR_BB_ENABLE_CUDA": "OFF",
+        "NR_BB_ENABLE_ASAN": "ON"
+      }
+    },
+    {
+      "name": "cpu-ubsan",
+      "displayName": "CPU UBSan",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cpu-ubsan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "NR_BB_ENABLE_CUDA": "OFF",
+        "NR_BB_ENABLE_UBSAN": "ON"
+      }
+    },
+    {
+      "name": "gpu",
+      "displayName": "GPU (CUDA if available)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/gpu",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "NR_BB_ENABLE_CUDA": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "cpu", "configurePreset": "cpu" },
+    { "name": "cpu-debug", "configurePreset": "cpu-debug" },
+    { "name": "cpu-asan", "configurePreset": "cpu-asan" },
+    { "name": "cpu-ubsan", "configurePreset": "cpu-ubsan" },
+    { "name": "gpu", "configurePreset": "gpu" }
+  ],
+  "testPresets": [
+    {
+      "name": "cpu",
+      "configurePreset": "cpu",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "cpu-asan",
+      "configurePreset": "cpu-asan",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}

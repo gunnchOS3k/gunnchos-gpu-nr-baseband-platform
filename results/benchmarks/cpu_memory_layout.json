@@ -1,0 +1,14 @@
+{
+  "benchmark": "cpu_memory_layout_pageable_pinned_mock",
+  "status": "PASS",
+  "platform": "cpu",
+  "median_us": 69.959,
+  "p90_us": 81.083,
+  "p95_us": 93.041,
+  "p99_us": 234.375,
+  "max_us": 261.417,
+  "jitter_us": 24.1657,
+  "throughput": 6.71462e+07,
+  "deadline_misses": 0,
+  "notes": "CPU mock of pageable/pinned concepts; not CUDA pinned host memory"
+}

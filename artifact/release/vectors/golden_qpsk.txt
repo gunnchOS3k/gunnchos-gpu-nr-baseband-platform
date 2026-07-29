@@ -1,0 +1,7 @@
+# QPSK unit-energy educational mapping
+# TRACEABILITY NOTE: conceptually TS 38.211 §5.1; NOT conformance
+bits=0011
+# symbols listed as re,im
+symbols=0.7071067811865476,0.7071067811865476,-0.7071067811865476,-0.7071067811865476
+tolerance_abs=1e-9
+provenance=self-generated

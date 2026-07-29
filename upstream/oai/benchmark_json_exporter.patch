@@ -1,0 +1,4 @@
+*** Begin Patch
+*** Add File: common/utils/bench_json_exporter_stub.c
++/* Stub — DOCUMENTED_IMPLEMENTATION only. */
+*** End Patch

@@ -1,0 +1,8 @@
+{
+  "protocol": "e2e_fault_injection",
+  "impairment": "loss_prob",
+  "value": 0.1,
+  "status": "PASS",
+  "mode": "dry_run_software_loopback",
+  "notes": "Software-only dry run on CPU host"
+}

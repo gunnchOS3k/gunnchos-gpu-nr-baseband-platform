@@ -1,0 +1,12 @@
+build/
+.cache/
+cmake-build-*/
+*.o
+*.a
+*.dylib
+*.so
+.DS_Store
+compile_commands.json
+html/
+latex/
+results/benchmarks/fh_loopback_test.pcap

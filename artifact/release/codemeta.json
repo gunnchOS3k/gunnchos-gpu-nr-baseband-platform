@@ -1,0 +1,30 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "gunnchos-gpu-nr-baseband-platform",
+  "description": "CPU/GPU Aerial-aligned NR baseband engineering artifact with PUSCH vertical slice, FAPI-like interface, fronthaul emulator, and reproducible benchmarks. Educational/research use; not 3GPP conformance.",
+  "version": "0.1.0",
+  "license": "https://spdx.org/licenses/MIT",
+  "codeRepository": "https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
+  "programmingLanguage": ["C++", "Python", "CMake", "CUDA"],
+  "runtimePlatform": ["CPU", "CUDA (optional)"],
+  "author": [
+    {
+      "@type": "Person",
+      "familyName": "Gunn",
+      "givenName": "Edmund",
+      "additionalName": "Jr."
+    }
+  ],
+  "keywords": [
+    "5G-NR",
+    "baseband",
+    "PUSCH",
+    "MIMO",
+    "Aerial-aligned",
+    "reproducibility"
+  ],
+  "identifier": "DOI_PENDING",
+  "dateCreated": "2026-07-29",
+  "developmentStatus": "active"
+}

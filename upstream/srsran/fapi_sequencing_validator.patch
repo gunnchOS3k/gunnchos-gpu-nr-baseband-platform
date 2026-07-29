@@ -1,0 +1,5 @@
+*** Begin Patch
+*** Add File: test/fapi_sequencing_validator_stub.cpp
++// Stub illustrating contribution shape — DOCUMENTED_IMPLEMENTATION only.
++// Validate CONFIG_REQ -> START_REQ -> TX_DATA_REQ ordering in fixtures.
+*** End Patch

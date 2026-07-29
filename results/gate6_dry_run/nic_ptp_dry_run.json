@@ -1,0 +1,5 @@
+{
+  "protocol": "nic_ptp",
+  "status": "PENDING_LAB",
+  "notes": "Awaiting lab NIC/PTP instruments"
+}

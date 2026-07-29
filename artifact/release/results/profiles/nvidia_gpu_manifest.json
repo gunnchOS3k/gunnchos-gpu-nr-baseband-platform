@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED_HARDWARE",
+  "nvidia_smi": "BLOCKED_HARDWARE",
+  "nvcc": "BLOCKED_HARDWARE",
+  "notes": "nvidia-smi not found; Apple M2 / CPU-only host",
+  "timestamp": "2026-07-29T19:12:07Z"
+}

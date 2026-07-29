@@ -1,0 +1,14 @@
+{
+  "benchmark": "cpu_eq_mmse_4x4",
+  "status": "PASS",
+  "platform": "cpu",
+  "median_us": 0.792,
+  "p90_us": 0.834,
+  "p95_us": 0.875,
+  "p99_us": 0.959,
+  "max_us": 6.125,
+  "jitter_us": 0.242599,
+  "throughput": 1.2235e+06,
+  "deadline_misses": 0,
+  "notes": "4x4 MMSE"
+}
