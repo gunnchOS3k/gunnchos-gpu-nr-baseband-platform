@@ -34,3 +34,7 @@ benchmark-gpu: gate4-gpu
 
 format:
 	@command -v clang-format >/dev/null && find include src tests benchmarks fuzz -name '*.hpp' -o -name '*.cpp' | xargs clang-format -i || echo "clang-format not installed"
+
+.PHONY: gate6-dry-run
+gate6-dry-run:
+	python3 scripts/gate6_dry_run.py
