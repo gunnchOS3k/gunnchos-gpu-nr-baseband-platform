@@ -46,7 +46,7 @@ orchestrator: bootstrap
 	./build/cpu/nr_bb_orchestrator
 
 gate6-dry-run:
-	./scripts/gate6_dry_run.sh
+	./scripts/ensure_gate6_report.sh
 
 paper:
 	@test -f paper/CPU_GPU_NIC_NR_BASEBAND_BENCHMARK.md && echo "Paper present" || (echo "missing paper"; exit 1)
