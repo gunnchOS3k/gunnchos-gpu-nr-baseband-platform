@@ -1,0 +1,15 @@
+{
+  "benchmark": "cpu_ofdm_64_fft",
+  "status": "PASS",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "median_us": 1.791,
+  "p90_us": 1.834,
+  "p95_us": 1.959,
+  "p99_us": 3.291,
+  "max_us": 10.625,
+  "jitter_us": 0.688514,
+  "throughput": 532379,
+  "deadline_misses": 0,
+  "notes": "radix-2 FFT OFDM (acceptance); naive DFT is educational-only"
+}

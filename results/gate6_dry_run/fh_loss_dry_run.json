@@ -1,8 +1,12 @@
 {
-  "protocol": "e2e_fault_injection",
-  "impairment": "loss_prob",
-  "value": 0.1,
-  "status": "PASS",
-  "mode": "dry_run_software_loopback",
-  "notes": "Software-only dry run on CPU host"
+  "artifact": "fh_loss_dry_run",
+  "gate": "gate6-dry-run",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_timings_present": false,
+  "nic_ptp_measured": false,
+  "sdr_ru_measured": false,
+  "notes": "Fronthaul impairment dry-run registry only; not physical FH pass",
+  "timestamp": "2026-07-29T20:36:10Z"
 }

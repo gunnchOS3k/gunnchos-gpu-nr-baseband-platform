@@ -2,13 +2,14 @@
   "benchmark": "cpu_memory_layout_pageable_pinned_mock",
   "status": "PASS",
   "platform": "cpu",
-  "median_us": 95.5,
-  "p90_us": 119.125,
-  "p95_us": 137.5,
-  "p99_us": 156.625,
-  "max_us": 221.042,
-  "jitter_us": 29.6789,
-  "throughput": 5.55677e+07,
+  "timing_source": "cpu_synthetic",
+  "median_us": 67.917,
+  "p90_us": 128.709,
+  "p95_us": 161.125,
+  "p99_us": 244.417,
+  "max_us": 342.208,
+  "jitter_us": 39.0769,
+  "throughput": 5.92196e+07,
   "deadline_misses": 0,
-  "notes": "CPU mock of pageable/pinned concepts; not CUDA pinned host memory"
+  "notes": "CPU mock of pageable/pinned; not CUDA pinned host memory"
 }

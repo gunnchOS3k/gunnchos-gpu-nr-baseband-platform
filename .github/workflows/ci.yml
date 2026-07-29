@@ -26,8 +26,14 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure
-      - name: Smoke bench
-        run: ./build/nr_bb_bench
+      - name: Smoke bench + opt studies + orchestrator
+        run: |
+          ./build/nr_bb_bench
+          ./build/nr_bb_opt_study
+          ./build/nr_bb_orchestrator
+          ./build/nr_bb_fuzz_fapi
+      - name: Gate6 dry-run fail-closed
+        run: ./scripts/gate6_dry_run.sh
 
   gpu:
     if: github.event_name == 'workflow_dispatch' && inputs.run_gpu == 'true'
@@ -36,6 +42,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: GPU pending
         run: |
-          mkdir -p results/benchmarks
-          echo '{"status":"PENDING_LAB","notes":"Requires self-hosted NVIDIA runner"}' > results/benchmarks/ci_gpu.json
+          ./scripts/emit_pending_json.sh PENDING_LAB ci-gpu \
+            results/benchmarks/ci_gpu.json \
+            "Requires self-hosted NVIDIA runner"
           cat results/benchmarks/ci_gpu.json

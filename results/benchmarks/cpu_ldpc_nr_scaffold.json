@@ -1,0 +1,15 @@
+{
+  "benchmark": "cpu_ldpc_nr_scaffold",
+  "status": "PASS",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "median_us": 3.583,
+  "p90_us": 7,
+  "p95_us": 10.125,
+  "p99_us": 15.292,
+  "max_us": 16.041,
+  "jitter_us": 2.85484,
+  "throughput": 205612,
+  "deadline_misses": 0,
+  "notes": "NR QC-LDPC BG2-compact zc=2 min-sum; educational (16,8) not used"
+}

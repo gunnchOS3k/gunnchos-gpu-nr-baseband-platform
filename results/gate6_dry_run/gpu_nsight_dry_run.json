@@ -1,5 +1,12 @@
 {
-  "protocol": "gpu_nsight",
+  "artifact": "gpu_nsight_dry_run",
+  "gate": "gate6-dry-run",
   "status": "BLOCKED_HARDWARE",
-  "notes": "No NVIDIA GPU on author Mac host"
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_timings_present": false,
+  "nic_ptp_measured": false,
+  "sdr_ru_measured": false,
+  "notes": "No Nsight / NVIDIA GPU numeric evidence on this host; dry-run only",
+  "timestamp": "2026-07-29T20:36:10Z"
 }

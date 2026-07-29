@@ -1,10 +1,9 @@
-# CUDA candidate sources
+# CUDA candidates
 
-These `.cu` files compile only when `NR_BB_ENABLE_CUDA=ON` and a CUDA toolkit
-is available. On Apple Silicon / CPU-only hosts:
+| File | Role | Mac host |
+|------|------|----------|
+| `baseband_kernels.cu` | scramble / rate-match / QPSK mod / QPSK LLR | build blocked without nvcc; numeric `BLOCKED_HARDWARE` |
+| `scheduler_candidate.cu` | metric ranking candidate | same |
+| `benchmark_kernels.cu` | EDUCATIONAL AXPY microbench only | not acceptance |
 
-- Do **not** fabricate GPU timings.
-- Emit fixtures with status `BLOCKED_HARDWARE`.
-- Use `make gate4-gpu` / `scripts/profile_gpu.sh` which detect absence.
-
-Status vocabulary: `PASS`, `FAIL`, `BLOCKED_HARDWARE`, `PENDING_LAB`, `DOCUMENTED_IMPLEMENTATION`.
+CPU references live in `nr_bb::cuda_ref`. Never invent GPU timings.

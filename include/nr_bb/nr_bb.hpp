@@ -1,5 +1,5 @@
 #pragma once
-/** Umbrella header for the educational NR baseband vertical slice. */
+/** Umbrella header for the NR baseband vertical slice (standards-path). */
 #include "nr_bb/types.hpp"
 #include "nr_bb/crc.hpp"
 #include "nr_bb/segmentation.hpp"
@@ -9,6 +9,7 @@
 #include "nr_bb/modulation.hpp"
 #include "nr_bb/layer_mapping.hpp"
 #include "nr_bb/dmrs.hpp"
+#include "nr_bb/fft.hpp"
 #include "nr_bb/ofdm.hpp"
 #include "nr_bb/channel.hpp"
 #include "nr_bb/channel_estimation.hpp"
@@ -20,3 +21,6 @@
 #include "nr_bb/scheduler.hpp"
 #include "nr_bb/fapi.hpp"
 #include "nr_bb/fronthaul.hpp"
+#include "nr_bb/deadline.hpp"
+#include "nr_bb/ber_campaign.hpp"
+#include "nr_bb/cuda_cpu_ref.hpp"

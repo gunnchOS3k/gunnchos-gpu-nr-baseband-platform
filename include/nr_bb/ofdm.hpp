@@ -1,10 +1,10 @@
 #pragma once
 /**
  * @file ofdm.hpp
- * @brief Educational OFDM modulate/demodulate (IFFT/FFT with CP).
+ * @brief OFDM modulate/demodulate with CP using radix-2 FFT (acceptance path).
  *
- * TRACEABILITY NOTE: Conceptually TS 38.211 §5.3 OFDM baseband signal
- * generation. Uses naive DFT; NOT a claim of NR numerology/CP conformance.
+ * TRACEABILITY NOTE: Conceptually TS 38.211 §5.3. Educational CP lengths are
+ * configurable; NOT a claim of full NR numerology table conformance.
  */
 #include "nr_bb/types.hpp"
 #include <cstddef>

@@ -2,13 +2,14 @@
   "benchmark": "cpu_crc24a",
   "status": "PASS",
   "platform": "cpu",
-  "median_us": 19.875,
-  "p90_us": 20.125,
-  "p95_us": 20.208,
-  "p99_us": 20.458,
-  "max_us": 50.916,
-  "jitter_us": 2.2474,
-  "throughput": 1.34032e+07,
+  "timing_source": "cpu_synthetic",
+  "median_us": 13.834,
+  "p90_us": 33.709,
+  "p95_us": 48.875,
+  "p99_us": 70.042,
+  "max_us": 124.458,
+  "jitter_us": 12.4205,
+  "throughput": 1.41777e+07,
   "deadline_misses": 0,
-  "notes": "educational CRC24A"
+  "notes": "CRC24A standards-path"
 }

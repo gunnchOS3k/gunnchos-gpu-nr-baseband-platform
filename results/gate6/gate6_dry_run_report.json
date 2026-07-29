@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "gate": "6",
+  "repository": "gunnchos-gpu-nr-baseband-platform",
+  "mode": "dry_run",
+  "evidence_label": "SYNTHETIC_EXPERIMENT",
+  "physical_pass": false,
+  "started": "2026-07-29T20:36:10Z",
+  "statuses": {
+    "GATE6_HARNESS": "GATE6_PARTIAL_HARNESS_PASS",
+    "GPU_MEASUREMENT": "GPU_MEASUREMENT_PENDING",
+    "NIC_PTP": "NIC_PTP_PENDING",
+    "SDR_LAB": "SDR_LAB_PENDING",
+    "PHYSICAL_EVIDENCE": "PHYSICAL_EVIDENCE_PENDING"
+  },
+  "hardware": {
+    "nvidia_gpu_present": false,
+    "evidence_label": "BLOCKED_HARDWARE",
+    "note": "No nvidia-smi / CUDA device on author host; dry-run must not emit GPU timings"
+  },
+  "claim": "GATE6 dry-run only \u2014 no Aerial equivalence, no GPU PASS, no NIC/PTP PASS",
+  "finished": "2026-07-29T20:36:10Z"
+}

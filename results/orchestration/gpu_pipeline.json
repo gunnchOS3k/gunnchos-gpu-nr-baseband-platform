@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_timings_present": false,
+  "notes": "CPU/GPU orchestration harness: GPU numeric path blocked on Apple M2"
+}

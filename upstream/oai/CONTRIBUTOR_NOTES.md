@@ -1,6 +1,12 @@
-# Contributor notes (OAI-oriented)
+# Upstream contribution packet — OpenAirInterface (bounded)
 
-Status: **DOCUMENTED_IMPLEMENTATION** only.
+**Status:** `DOCUMENTED_IMPLEMENTATION` until merge.
 
-Proposed contribution: benchmark instrumentation hooks emitting median/p90/p95/p99
-JSON compatible with this repo’s control-plane schema fields.
+## Scope
+Benchmark JSON exporter helper for PHY timing percentiles labeled
+`cpu_synthetic` vs `gpu_measured`, with fail-closed behavior when GPU absent.
+
+## Files
+`DRAFT_ISSUE.md` · `DRAFT_PR.md` · `benchmark_json_exporter.patch` · this note
+
+Do not claim Gate 6 physical PASS from dry-run JSON.

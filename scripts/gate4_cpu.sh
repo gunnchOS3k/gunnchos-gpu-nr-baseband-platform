@@ -8,4 +8,4 @@ ctest --preset cpu --output-on-failure
 cmake --build --preset cpu --target nr_bb_bench
 ./build/cpu/nr_bb_bench
 ./scripts/system_manifest.sh
-echo "GATE4 CPU complete"
+echo "gate4-cpu-reference complete"

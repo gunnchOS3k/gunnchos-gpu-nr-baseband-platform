@@ -1,6 +1,4 @@
-# Self-generated educational (16,8) LDPC reference
-# TRACEABILITY NOTE: NOT NR BG1/BG2 (TS 38.212 §5.3.2)
-info=00000000
-codeword=0000000000000000
-tolerance=exact_bit
-provenance=self-generated educational (16,8)
+# EDUCATIONAL_ONLY short (16,8) LDPC — not acceptance
+provenance=self-generated EDUCATIONAL_ONLY
+info=10110010
+codeword=

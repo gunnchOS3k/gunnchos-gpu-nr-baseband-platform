@@ -1,0 +1,15 @@
+{
+  "gate": "gate6-dry-run",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "physical_pass": false,
+  "gpu_present": false,
+  "artifacts": [
+    "gpu_nsight_dry_run.json",
+    "nic_ptp_dry_run.json",
+    "fh_loss_dry_run.json",
+    "sdr_ru_dry_run.json"
+  ],
+  "notes": "Apple Silicon / no nvidia-smi — Gate 6 physical PASS impossible; dry-run structured pending only",
+  "timestamp": "2026-07-29T20:36:10Z"
+}

@@ -1,0 +1,12 @@
+{
+  "study_id": "sync_vs_async_stub",
+  "controlled_variable": "sync_vs_async_stub",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "gpu_claim": "none",
+  "hypothesis": "CPU staging stub approximates async pipeline without fake GPU streams",
+  "before": {"name": "sync_chain", "median_us": 18.709, "p90_us": 24.334, "p95_us": 40.25, "p99_us": 51.084, "max_us": 58.458},
+  "after": {"name": "staged_stub", "median_us": 18.792, "p90_us": 39.125, "p95_us": 47.958, "p99_us": 50.542, "max_us": 53.167},
+  "conclusion": "CPU stub only — CUDA stream overlap remains BLOCKED_HARDWARE on this host",
+  "status": "PASS"
+}

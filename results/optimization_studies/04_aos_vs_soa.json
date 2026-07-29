@@ -1,0 +1,12 @@
+{
+  "study_id": "aos_vs_soa",
+  "controlled_variable": "aos_vs_soa",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "gpu_claim": "none",
+  "hypothesis": "SoA improves contiguous math throughput",
+  "before": {"name": "aos", "median_us": 124.875, "p90_us": 156.875, "p95_us": 176.625, "p99_us": 191.417, "max_us": 228.708},
+  "after": {"name": "soa", "median_us": 126.584, "p90_us": 164.875, "p95_us": 171.625, "p99_us": 192.541, "max_us": 262},
+  "conclusion": "SoA is at least competitive; used for IQ buffers",
+  "status": "PASS"
+}

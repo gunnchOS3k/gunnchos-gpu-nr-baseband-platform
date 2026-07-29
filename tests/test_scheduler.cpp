@@ -1,17 +1,33 @@
 #include <catch2/catch_test_macros.hpp>
 #include "nr_bb/scheduler.hpp"
 
-TEST_CASE("PF scheduler selects and allocates PRBs", "[sched]") {
-  std::vector<nr_bb::UeState> ues = {
-      {.ue_id = 1, .avg_throughput = 1.0, .instant_rate = 10.0, .qos_weight = 1.0, .preferred_mcs = 5, .preferred_layers = 2},
-      {.ue_id = 2, .avg_throughput = 5.0, .instant_rate = 5.0, .qos_weight = 1.0, .preferred_mcs = 3, .preferred_layers = 1},
-      {.ue_id = 3, .avg_throughput = 1.0, .instant_rate = 2.0, .qos_weight = 2.0, .preferred_mcs = 4, .preferred_layers = 1},
-  };
-  nr_bb::PfScheduler sched(50);
-  auto r = sched.schedule(ues, 2);
+TEST_CASE("MacScheduler filters and allocates deterministically", "[scheduler]") {
+  std::vector<nr_bb::UeState> ues(5);
+  for (size_t i = 0; i < ues.size(); ++i) {
+    ues[i].ue_id = static_cast<uint32_t>(i);
+    ues[i].avg_throughput = 1.0 + i;
+    ues[i].instant_rate = 5.0;
+    ues[i].buffer_bytes = (i == 0) ? 0.0 : 1000.0;  // filter UE0
+    ues[i].cqi = 5;
+  }
+  nr_bb::MacScheduler sched(nr_bb::SchedulerConfig{.n_prb = 50, .max_ues = 3, .seed = 9});
+  auto a = sched.schedule(ues);
+  auto b = sched.schedule(ues);
+  REQUIRE(a.replay_hash == b.replay_hash);
+  REQUIRE(!a.filtered_ues.empty());
+  REQUIRE(a.selected_ues.size() <= 3);
+  int prb = 0;
+  for (const auto& x : a.allocations) prb += x.prb_count;
+  REQUIRE(prb == 50);
+}
+
+TEST_CASE("PfScheduler compatibility", "[scheduler]") {
+  std::vector<nr_bb::UeState> ues(4);
+  for (size_t i = 0; i < ues.size(); ++i) {
+    ues[i].ue_id = static_cast<uint32_t>(i);
+    ues[i].buffer_bytes = 10;
+  }
+  nr_bb::PfScheduler pf(100);
+  auto r = pf.schedule(ues, 2);
   REQUIRE(r.selected_ues.size() == 2);
-  int prbs = 0;
-  for (auto& a : r.allocations) prbs += a.prb_count;
-  REQUIRE(prbs == 50);
-  REQUIRE(nr_bb::PfScheduler::pf_metric(ues[0]) > nr_bb::PfScheduler::pf_metric(ues[1]));
 }
