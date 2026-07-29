@@ -80,3 +80,12 @@ make gate4-cpu-reference optimization-study-cpu orchestrator gate6-dry-run
 make gate4-cuda-build   # → BLOCKED_HARDWARE JSON on Mac
 make paper artifact
 ```
+
+## References
+
+1. 3GPP TS 38.212 — Multiplexing and channel coding (NR).
+2. 3GPP TS 38.211 — Physical channels and modulation (NR).
+3. srsRAN Project documentation (open-source NR reference orientation).
+4. OpenAirInterface 5G documentation (open-source PHY/MAC orientation).
+5. NVIDIA Aerial SDK overview materials (public documentation only; no proprietary code used).
+
