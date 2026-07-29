@@ -121,7 +121,7 @@ int main() {
   }
 
   {
-    nr_bb::LdpcParams p{.bg = nr_bb::BaseGraph::BG2, .zc = 2};
+    nr_bb::LdpcParams p{.bg = nr_bb::BaseGraph::BG2, .zc = 2, .mb_use = 6};
     const int K = nr_bb::ldpc_graph_info(p).kb * p.zc;
     nr_bb::BitVec info(static_cast<size_t>(K));
     for (int i = 0; i < K; ++i) info[static_cast<size_t>(i)] = static_cast<uint8_t>(i & 1);
@@ -133,8 +133,8 @@ int main() {
           (void)nr_bb::ldpc_decode(llr, p);
         },
         40, 40.0, 5000.0);
-    write_json(outdir + "/cpu_ldpc_nr_scaffold.json", "cpu_ldpc_nr_scaffold", st, "PASS",
-               "NR QC-LDPC BG2-compact zc=2 min-sum; educational (16,8) not used");
+    write_json(outdir + "/cpu_ldpc_nr_bg2.json", "cpu_ldpc_nr_bg2", st, "PASS",
+               "NR QC-LDPC BG2 real tables zc=2 mb_use=6 min-sum; CompactQc educational-only");
   }
 
   {

@@ -1,0 +1,8 @@
+{
+  "harness": "cuda_equivalence",
+  "status": "BLOCKED_HARDWARE",
+  "fail_closed": true,
+  "gpu_timings_present": false,
+  "numeric_gpu_claim": false,
+  "notes": "CPU reference exists; GPU numeric equivalence BLOCKED_HARDWARE"
+}

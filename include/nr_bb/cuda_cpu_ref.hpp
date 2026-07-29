@@ -23,9 +23,14 @@ struct CompareReport {
 
 BitVec scramble_bits(const BitVec& bits, uint32_t c_init);
 BitVec rate_match_bits(const BitVec& coded, std::size_t e_bits);
-/** Soft demod QPSK LLRs (float path for CUDA parity). */
-std::vector<float> qpsk_llr_f32(const std::vector<float>& iq_interleaved /* Re,Im,... */, float noise_var);
+std::vector<float> qpsk_llr_f32(const std::vector<float>& iq_interleaved, float noise_var);
 std::vector<float> modulate_qpsk_f32(const BitVec& bits);
+
+void zf_tone_f32(const std::vector<float>& y_re, const std::vector<float>& y_im, const std::vector<float>& h_re,
+                 const std::vector<float>& h_im, std::vector<float>& x_re, std::vector<float>& x_im);
+void mmse_tone_f32(const std::vector<float>& y_re, const std::vector<float>& y_im, const std::vector<float>& h_re,
+                   const std::vector<float>& h_im, float noise, std::vector<float>& x_re, std::vector<float>& x_im);
+std::vector<float> harq_combine_f32(const std::vector<float>& a, const std::vector<float>& b);
 
 CompareReport compare_f32(const std::vector<float>& a, const std::vector<float>& b, const std::string& kernel,
                           double tol = 1e-5);

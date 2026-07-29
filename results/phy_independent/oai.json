@@ -1,0 +1,11 @@
+{
+  "adapter": "oai",
+  "dependency": "OpenAirInterface nr_ulsim / softmodem",
+  "vectors": [
+    "pusch_bler_curve",
+    "timing_json"
+  ],
+  "metrics": {},
+  "notes": "OAI tools not on PATH; comparison pending.",
+  "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+}

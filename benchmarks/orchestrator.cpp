@@ -22,7 +22,7 @@ int main() {
 
   // CPU pipeline synthetic timing → numerology deadline report
   std::vector<double> samples_us;
-  nr_bb::LdpcParams lp{.bg = nr_bb::BaseGraph::BG2, .zc = 2};
+  nr_bb::LdpcParams lp{.bg = nr_bb::BaseGraph::BG2, .zc = 2, .mb_use = 6};
   const auto info_len = nr_bb::ldpc_graph_info(lp).kb * lp.zc;
   for (int i = 0; i < 40; ++i) {
     nr_bb::BitVec info(static_cast<size_t>(info_len), 0);

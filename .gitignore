@@ -11,3 +11,5 @@ html/
 latex/
 results/benchmarks/fh_loopback_test.pcap
 build/
+__pycache__/
+*.pyc

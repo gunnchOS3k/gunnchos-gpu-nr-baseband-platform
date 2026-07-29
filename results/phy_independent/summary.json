@@ -1,0 +1,52 @@
+{
+  "status": "PENDING",
+  "comparison_pass_count": 0,
+  "required_pass_count": 2,
+  "adapters": [
+    {
+      "adapter": "sionna",
+      "dependency": "sionna (Apache-2.0)",
+      "vectors": [
+        "ldpc_bg2_zc2_self",
+        "qpsk_llr_unit"
+      ],
+      "metrics": {},
+      "notes": "Sionna not installed on this host; comparison pending.",
+      "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+    },
+    {
+      "adapter": "srsran",
+      "dependency": "srsRAN Project CLI / libraries",
+      "vectors": [
+        "fapi_sequencing",
+        "scramble_gold"
+      ],
+      "metrics": {},
+      "notes": "srsRAN binaries not on PATH; comparison pending.",
+      "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+    },
+    {
+      "adapter": "oai",
+      "dependency": "OpenAirInterface nr_ulsim / softmodem",
+      "vectors": [
+        "pusch_bler_curve",
+        "timing_json"
+      ],
+      "metrics": {},
+      "notes": "OAI tools not on PATH; comparison pending.",
+      "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+    },
+    {
+      "adapter": "matlab",
+      "dependency": "MATLAB + 5G Toolbox",
+      "vectors": [
+        "nrLDPCEncode",
+        "nrRateMatchLDPC"
+      ],
+      "metrics": {},
+      "notes": "MATLAB not on PATH; comparison pending.",
+      "status": "REFERENCE_DEPENDENCY_UNAVAILABLE"
+    }
+  ],
+  "notes": "Honest pending: comparison_pass=0/2 required; unavailable=4 (typical on Apple M2 without deps)"
+}

@@ -32,6 +32,12 @@ jobs:
           ./build/nr_bb_opt_study
           ./build/nr_bb_orchestrator
           ./build/nr_bb_fuzz_fapi
+      - name: Validate PHY independent adapters
+        run: python3 ./scripts/validate_phy_independent.py
+      - name: CUDA equivalence blocked harness
+        run: |
+          chmod +x ./scripts/cuda_equivalence.sh
+          NR_BB_BUILD_DIR=./build ./scripts/cuda_equivalence.sh || ./scripts/cuda_equivalence.sh
       - name: Gate6 dry-run fail-closed
         run: ./scripts/gate6_dry_run.sh
 
@@ -42,7 +48,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: GPU pending
         run: |
-          ./scripts/emit_pending_json.sh PENDING_LAB ci-gpu \
+          ./scripts/emit_pending_json.sh BLOCKED_GPU_RUNNER ci-gpu \
             results/benchmarks/ci_gpu.json \
-            "Requires self-hosted NVIDIA runner"
+            "Requires self-hosted NVIDIA runner (labels: self-hosted, nvidia-gpu)"
           cat results/benchmarks/ci_gpu.json

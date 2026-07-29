@@ -1,5 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "nr_bb_edu/ldpc_short.hpp"
+#include "nr_bb_edu/compact_qc_ldpc.hpp"
 #include "nr_bb_edu/naive_dft.hpp"
 #include "nr_bb_edu/binary_pam.hpp"
 #include "nr_bb/fft.hpp"
@@ -11,6 +12,16 @@ TEST_CASE("educational short LDPC still works labeled", "[educational]") {
   REQUIRE(cw.size() == 16);
   auto ref = nr_bb_edu::make_reference(info);
   REQUIRE(ref.provenance.find("EDUCATIONAL") != std::string::npos);
+}
+
+TEST_CASE("educational CompactQcLdpc is not NR acceptance", "[educational]") {
+  nr_bb_edu::CompactQcLdpcParams p{.bg = nr_bb_edu::CompactBaseGraph::BG2, .zc = 2};
+  auto g = nr_bb_edu::compact_qc_ldpc_graph_info(p);
+  REQUIRE(g.kb == 4);
+  REQUIRE(g.provenance.find("EDUCATIONAL_ONLY") != std::string::npos);
+  nr_bb::BitVec info(static_cast<size_t>(g.kb * g.zc), 1);
+  auto cw = nr_bb_edu::compact_qc_ldpc_encode(info, p);
+  REQUIRE(nr_bb_edu::compact_qc_ldpc_syndrome_ok(cw, p));
 }
 
 TEST_CASE("educational naive DFT vs acceptance FFT", "[educational]") {
