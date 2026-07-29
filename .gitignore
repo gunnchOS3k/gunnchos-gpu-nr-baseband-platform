@@ -10,3 +10,4 @@ compile_commands.json
 html/
 latex/
 results/benchmarks/fh_loopback_test.pcap
+build/
