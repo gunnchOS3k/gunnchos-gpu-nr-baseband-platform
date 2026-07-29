@@ -11,5 +11,5 @@
     "sdr_ru_dry_run.json"
   ],
   "notes": "Apple Silicon / no nvidia-smi — Gate 6 physical PASS impossible; dry-run structured pending only",
-  "timestamp": "2026-07-29T20:33:09Z"
+  "timestamp": "2026-07-29T20:35:23Z"
 }
