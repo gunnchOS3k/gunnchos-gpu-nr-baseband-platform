@@ -11,3 +11,5 @@ Current-state diagrams for the CPU-first vertical slice. **Not** a lab deploymen
 | Timing | [current/timing.md](current/timing.md) |
 | CPU / GPU deployment | [current/deployment.md](current/deployment.md) |
 | Validation-gate state machine | [current/state_validation_gate.md](current/state_validation_gate.md) |
+
+Future (BLOCKED_GPU): [future/index.md](future/index.md) · Legacy: [legacy/index.md](legacy/index.md) · Traceability: [traceability_matrix.md](traceability_matrix.md)
