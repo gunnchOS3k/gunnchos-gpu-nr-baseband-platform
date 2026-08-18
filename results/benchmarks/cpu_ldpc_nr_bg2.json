@@ -1,0 +1,15 @@
+{
+  "benchmark": "cpu_ldpc_nr_bg2",
+  "status": "PASS",
+  "platform": "cpu",
+  "timing_source": "cpu_synthetic",
+  "median_us": 7,
+  "p90_us": 11.792,
+  "p95_us": 14.542,
+  "p99_us": 18.25,
+  "max_us": 21.208,
+  "jitter_us": 3.153,
+  "throughput": 116042,
+  "deadline_misses": 0,
+  "notes": "NR QC-LDPC BG2 real tables zc=2 mb_use=6 min-sum; CompactQc educational-only"
+}

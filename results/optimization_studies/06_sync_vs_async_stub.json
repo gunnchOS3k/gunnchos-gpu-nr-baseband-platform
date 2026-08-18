@@ -5,8 +5,8 @@
   "timing_source": "cpu_synthetic",
   "gpu_claim": "none",
   "hypothesis": "CPU staging stub approximates async pipeline without fake GPU streams",
-  "before": {"name": "sync_chain", "median_us": 19.042, "p90_us": 19.417, "p95_us": 20.333, "p99_us": 23.417, "max_us": 26.5},
-  "after": {"name": "staged_stub", "median_us": 18.417, "p90_us": 19.125, "p95_us": 19.208, "p99_us": 20.208, "max_us": 30.458},
+  "before": {"name": "sync_chain", "median_us": 18.834, "p90_us": 43.75, "p95_us": 49.708, "p99_us": 71.542, "max_us": 76.083},
+  "after": {"name": "staged_stub", "median_us": 18.75, "p90_us": 21.333, "p95_us": 27.666, "p99_us": 28.833, "max_us": 52.125},
   "conclusion": "CPU stub only — CUDA stream overlap remains BLOCKED_HARDWARE on this host",
   "status": "PASS"
 }

@@ -1,0 +1,37 @@
+{
+  "gate": "supervisor-cpu-gate",
+  "status": "CPU_PASS",
+  "evidence_class": "CPU validation",
+  "educational_separated": true,
+  "standards_path_tested": true,
+  "cpu_tests": {
+    "passed": 56,
+    "failed": 0
+  },
+  "gpu": {
+    "gate": "supervisor-cpu-gate",
+    "status": "BLOCKED_GPU",
+    "aliases": [
+      "BLOCKED_HARDWARE",
+      "BLOCKED_GPU_RUNNER"
+    ],
+    "fail_closed": true,
+    "gpu_timings_present": false,
+    "numeric_gpu_claim": false,
+    "nvcc": 0,
+    "nvidia_smi": 0,
+    "host": "Darwin-arm64",
+    "commit": "3730f236c7d4368476a81090616cac1b7f4191fb",
+    "timestamp": "2026-08-18T17:19:28Z",
+    "notes": "No nvcc and/or no NVIDIA GPU. CUDA candidate sources may exist; GPU measured evidence is absent. Never invent kernel timings."
+  },
+  "phy_independent": {
+    "status": "PENDING",
+    "notes": "Honest pending: comparison_pass=0/2 required; unavailable=4 (typical on Apple M2 without deps)"
+  },
+  "commit": "3730f236c7d4368476a81090616cac1b7f4191fb",
+  "host": "Darwin-arm64",
+  "timestamp": "2026-08-18T17:19:29.855683+00:00",
+  "claim_3gpp_conformance": false,
+  "notes": "CPU tests executed. GPU measured and 3GPP conformance are not claimed."
+}

@@ -36,8 +36,10 @@ jobs:
         run: python3 ./scripts/validate_phy_independent.py
       - name: CUDA equivalence blocked harness
         run: |
-          chmod +x ./scripts/cuda_equivalence.sh
+          chmod +x ./scripts/cuda_equivalence.sh ./scripts/emit_blocked_gpu.sh
           NR_BB_BUILD_DIR=./build ./scripts/cuda_equivalence.sh || ./scripts/cuda_equivalence.sh
+          ./scripts/emit_blocked_gpu.sh
+          python3 ./scripts/validate_claim_boundaries.py
       - name: Gate6 dry-run fail-closed
         run: ./scripts/gate6_dry_run.sh
 

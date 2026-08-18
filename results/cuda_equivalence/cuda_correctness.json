@@ -1,6 +1,7 @@
 {
   "harness": "cuda_correctness",
-  "status": "BLOCKED_HARDWARE",
+  "status": "BLOCKED_GPU",
+  "aliases": ["BLOCKED_HARDWARE"],
   "fail_closed": true,
   "gpu_timings_present": false,
   "numeric_gpu_claim": false,

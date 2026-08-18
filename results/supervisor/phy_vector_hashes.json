@@ -1,0 +1,10 @@
+{
+  "files": {
+    "vectors/TOLERANCES.md": "6298984163c3fefbd882831370da3dfa90b54b2c2804ef271b42b1d1a5e5ed1b",
+    "vectors/golden_crc24a.txt": "d48a92a6d9d4ce96214efbd09698633c60badbeb739842a3a866b5f0f1c2c1f1",
+    "vectors/golden_ldpc.txt": "5ee8ec7ffc45b04202a05c749322aaa0eae09de1d62f7a9aeab43ed1cecd6b2a",
+    "vectors/golden_qpsk.txt": "2604ca9338c3d7efe09b7277b7ae988155f3912af0d7188a088ff417aee3f21b",
+    "vectors/nr_ldpc/golden_bg2_zc2.txt": "c5455ec67e24b9d9a79f20612aa019638f6915c1649b4e86582e5dd864af06f4"
+  },
+  "timestamp": "2026-08-18T17:19:29.848297+00:00"
+}

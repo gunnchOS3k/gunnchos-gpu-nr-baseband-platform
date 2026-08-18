@@ -5,7 +5,7 @@
   "mode": "dry_run",
   "evidence_label": "SYNTHETIC_EXPERIMENT",
   "physical_pass": false,
-  "started": "2026-07-29T20:36:10Z",
+  "started": "2026-08-18T17:19:29Z",
   "statuses": {
     "GATE6_HARNESS": "GATE6_PARTIAL_HARNESS_PASS",
     "GPU_MEASUREMENT": "GPU_MEASUREMENT_PENDING",
@@ -19,5 +19,5 @@
     "note": "No nvidia-smi / CUDA device on author host; dry-run must not emit GPU timings"
   },
   "claim": "GATE6 dry-run only \u2014 no Aerial equivalence, no GPU PASS, no NIC/PTP PASS",
-  "finished": "2026-07-29T20:36:10Z"
+  "finished": "2026-08-18T17:19:29Z"
 }

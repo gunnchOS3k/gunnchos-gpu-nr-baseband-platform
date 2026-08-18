@@ -8,5 +8,5 @@
   "nic_ptp_measured": false,
   "sdr_ru_measured": false,
   "notes": "NIC/PTP lab path not instrumented; PENDING_LAB / dry-run only",
-  "timestamp": "2026-07-29T20:36:10Z"
+  "timestamp": "2026-08-18T17:19:29Z"
 }
