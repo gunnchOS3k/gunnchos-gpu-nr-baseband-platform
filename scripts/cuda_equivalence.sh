@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # CUDA correctness / CPU↔GPU equivalence harness.
-# Without nvcc / NVIDIA GPU: emit BLOCKED_HARDWARE (never invent GPU timings).
+# Without nvcc / NVIDIA GPU: emit BLOCKED_GPU (never invent GPU timings).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$ROOT/results/cuda_equivalence"
-mkdir -p "$OUT"
+mkdir -p "$OUT" "$ROOT/results/blocked_gpu"
+chmod +x "$ROOT/scripts/emit_blocked_gpu.sh"
 
 has_nvcc=0
 has_gpu=0
@@ -16,7 +17,8 @@ emit_blocked() {
   cat >"$OUT/${name}.json" <<EOF
 {
   "harness": "$name",
-  "status": "BLOCKED_HARDWARE",
+  "status": "BLOCKED_GPU",
+  "aliases": ["BLOCKED_HARDWARE"],
   "fail_closed": true,
   "gpu_timings_present": false,
   "numeric_gpu_claim": false,
@@ -24,6 +26,7 @@ emit_blocked() {
 }
 EOF
 }
+"$ROOT/scripts/emit_blocked_gpu.sh" "$ROOT/results/blocked_gpu/BLOCKED_GPU.json" cuda-equivalence 2>/dev/null || true
 
 if [[ "$has_nvcc" -eq 0 || "$has_gpu" -eq 0 ]]; then
   emit_blocked "cuda_correctness" "No nvcc and/or no NVIDIA GPU on this host (Apple M2)"
@@ -34,7 +37,7 @@ if [[ "$has_nvcc" -eq 0 || "$has_gpu" -eq 0 ]]; then
   elif [[ -x "$ROOT/build/nr_bb_tests" ]]; then
     "$ROOT/build/nr_bb_tests" "[cuda_ref]" || true
   fi
-  echo "cuda-correctness / cuda-equivalence → BLOCKED_HARDWARE"
+  echo "cuda-correctness / cuda-equivalence → BLOCKED_GPU"
   cat "$OUT/cuda_correctness.json"
   exit 0
 fi

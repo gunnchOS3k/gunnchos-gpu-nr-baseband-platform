@@ -8,5 +8,5 @@
   "nic_ptp_measured": false,
   "sdr_ru_measured": false,
   "notes": "No Nsight / NVIDIA GPU numeric evidence on this host; dry-run only",
-  "timestamp": "2026-07-29T20:36:10Z"
+  "timestamp": "2026-08-18T17:19:29Z"
 }

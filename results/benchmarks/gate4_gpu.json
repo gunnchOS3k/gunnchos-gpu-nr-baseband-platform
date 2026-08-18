@@ -1,10 +1,10 @@
 {
   "gate": "gate4-gpu",
-  "status": "BLOCKED_HARDWARE",
+  "status": "BLOCKED_GPU",
   "fail_closed": true,
   "physical_pass": false,
   "gpu_timings_present": false,
   "notes": "No NVIDIA GPU — never invent GPU timings",
   "host": "Darwin-arm64",
-  "timestamp": "2026-07-29T20:33:10Z"
+  "timestamp": "2026-08-18T17:19:28Z"
 }

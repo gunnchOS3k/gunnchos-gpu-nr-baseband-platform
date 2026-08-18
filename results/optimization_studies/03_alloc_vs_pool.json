@@ -5,8 +5,8 @@
   "timing_source": "cpu_synthetic",
   "gpu_claim": "none",
   "hypothesis": "Reusing a pool beats per-iteration heap alloc",
-  "before": {"name": "heap_alloc", "median_us": 16.583, "p90_us": 17.208, "p95_us": 17.792, "p99_us": 39.583, "max_us": 55.5},
-  "after": {"name": "reuse_pool", "median_us": 0.042, "p90_us": 0.042, "p95_us": 0.042, "p99_us": 0.042, "max_us": 0.083},
+  "before": {"name": "heap_alloc", "median_us": 15.667, "p90_us": 17.625, "p95_us": 24.5, "p99_us": 27.791, "max_us": 28.208},
+  "after": {"name": "reuse_pool", "median_us": 0.042, "p90_us": 0.042, "p95_us": 0.042, "p99_us": 0.042, "max_us": 0.042},
   "conclusion": "Pool reuse reduces median us versus fresh allocations",
   "status": "PASS"
 }

@@ -5,9 +5,9 @@
   "mu": 0,
   "slot_duration_us": 1000,
   "deadline_us": 1000,
-  "median_us": 1.125,
-  "p95_us": 3,
-  "p99_us": 3.042,
+  "median_us": 2.541,
+  "p95_us": 4.708,
+  "p99_us": 6.375,
   "deadline_misses": 0,
   "miss_ratio": 0
 }

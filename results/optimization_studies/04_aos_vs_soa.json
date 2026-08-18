@@ -5,8 +5,8 @@
   "timing_source": "cpu_synthetic",
   "gpu_claim": "none",
   "hypothesis": "SoA improves contiguous math throughput",
-  "before": {"name": "aos", "median_us": 122.875, "p90_us": 136.166, "p95_us": 138, "p99_us": 172.25, "max_us": 190.625},
-  "after": {"name": "soa", "median_us": 123.417, "p90_us": 127.833, "p95_us": 131, "p99_us": 134.667, "max_us": 137.042},
+  "before": {"name": "aos", "median_us": 122.834, "p90_us": 138.708, "p95_us": 150.916, "p99_us": 157.916, "max_us": 171.291},
+  "after": {"name": "soa", "median_us": 123.291, "p90_us": 150.416, "p95_us": 165.458, "p99_us": 205.583, "max_us": 205.958},
   "conclusion": "SoA is at least competitive; used for IQ buffers",
   "status": "PASS"
 }

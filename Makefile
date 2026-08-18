@@ -2,7 +2,8 @@
 	gate4-cpu-reference gate4-cuda-build gate4-gpu \
 	optimization-study-cpu optimization-study-gpu \
 	validate-phy-independent cuda-correctness cuda-equivalence \
-	gate6-dry-run paper artifact reproduce-clean smoke format orchestrator
+	gate6-dry-run paper artifact reproduce-clean smoke format orchestrator \
+	blocked-gpu supervisor-cpu-gate claim-boundaries
 
 bootstrap:
 	cmake --preset cpu
@@ -38,7 +39,7 @@ optimization-study-cpu: bootstrap
 	./build/cpu/nr_bb_opt_study
 
 optimization-study-gpu:
-	./scripts/emit_pending_json.sh BLOCKED_HARDWARE optimization-study-gpu \
+  ./scripts/emit_pending_json.sh BLOCKED_GPU optimization-study-gpu \
 	  results/optimization_studies/07_gpu_blocked.json \
 	  "No NVIDIA GPU — CPU studies only on this host"
 
@@ -73,6 +74,17 @@ reproduce-clean:
 
 reproduce:
 	./scripts/reproduce.sh
+
+claim-boundaries:
+	python3 ./scripts/validate_claim_boundaries.py
+
+blocked-gpu:
+	chmod +x ./scripts/emit_blocked_gpu.sh
+	./scripts/emit_blocked_gpu.sh
+
+supervisor-cpu-gate: claim-boundaries
+	chmod +x ./scripts/supervisor_cpu_gate.sh ./scripts/emit_blocked_gpu.sh
+	./scripts/supervisor_cpu_gate.sh
 
 format:
 	@command -v clang-format >/dev/null && find include src tests benchmarks fuzz educational -name '*.hpp' -print -o -name '*.cpp' -print | xargs clang-format -i || echo "clang-format not installed"

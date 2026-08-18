@@ -5,8 +5,8 @@
   "timing_source": "cpu_synthetic",
   "gpu_claim": "none",
   "hypothesis": "Aligned hot buffer beats cold large pageable walk (host-side mock only)",
-  "before": {"name": "pageable", "median_us": 30.917, "p90_us": 32.291, "p95_us": 35.042, "p99_us": 47.708, "max_us": 82},
-  "after": {"name": "aligned_hot", "median_us": 245.708, "p90_us": 258.25, "p95_us": 259.459, "p99_us": 318.292, "max_us": 329.958},
+  "before": {"name": "pageable", "median_us": 31.5, "p90_us": 42.042, "p95_us": 44.958, "p99_us": 141.459, "max_us": 249.708},
+  "after": {"name": "aligned_hot", "median_us": 246.542, "p90_us": 277.083, "p95_us": 288.708, "p99_us": 300.459, "max_us": 306.375},
   "conclusion": "Host-side mock only — NOT CUDA pinned memory; no GPU claim",
   "status": "PASS"
 }
