@@ -48,7 +48,7 @@
     </section>
     <section id="methods" aria-labelledby="methods-title">
       <h2 id="methods-title">Methods</h2>
-      <p># Reproducibility — gunnchos GPU NR baseband platform CPU-first NR PUSCH-oriented vertical slice. GPU numbers are produced only on an NVIDIA host. ## Fresh machine (CPU) ```bash git clone https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform.git cd gunnchos-gpu-nr-baseband-platform # Private clone requires collaborator access (see docs/packets/REPOSITORY_VISIBILITY_PACKET.md). cmake --preset cpu cmake --build --preset cpu ctest --preset cpu --output-on-failure make validate-phy-independent make cuda-correctness # expected BLOCKED_GPU on hosts without NVIDIA GPU make supervisor-cpu-gate ``` Requires: CMake ≥ 3.20, Ninja, C++20 compiler, Python 3.10+. Catch2 is fetched at configure t</p>
+      <p>Methods are the CPU benchmark JSON files in results/benchmarks and the blocked gate in results/blocked_gpu/BLOCKED_GPU.json. CPU rows with status PASS copy median_us from those files. The blocked-GPU file says gpu_timings_present is false and numeric_gpu_claim is false. No GPU kernel timing is added here.</p>
       <p>Native research runtimes stay on a local checkout. This page shows repository records only.</p>
     </section>
     <section id="artifacts" aria-labelledby="artifacts-title">
