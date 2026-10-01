@@ -222,5 +222,6 @@
   "methods": "Methods are the CPU benchmark JSON files in results/benchmarks and the blocked gate in results/blocked_gpu/BLOCKED_GPU.json. CPU rows with status PASS copy median_us from those files. The blocked-GPU file says gpu_timings_present is false and numeric_gpu_claim is false. No GPU kernel timing is added here.",
   "cards": [],
   "runtime_mode": "PRECOMPUTED",
-  "runtime_boot": false
+  "runtime_boot": false,
+  "evidence_class": "SYNTHETIC_SIM"
 }
