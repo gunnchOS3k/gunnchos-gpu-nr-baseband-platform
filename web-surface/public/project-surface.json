@@ -1,0 +1,21 @@
+{
+  "repo": "gunnchos-gpu-nr-baseband-platform",
+  "productName": "GPU NR baseband",
+  "family": "Research",
+  "classification": "STATIC_RESEARCH_SURFACE_WORKER",
+  "acceptedSha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
+  "status": "STAGING_WORKER",
+  "summary": "Educational and research baseband platform. The GPU and native radio code do not run on this Worker.",
+  "capabilities": [
+    "Read what the platform studies",
+    "Open the source repository"
+  ],
+  "limitations": [
+    "No live gNodeB is claimed",
+    "Native and GPU code stay off this Worker"
+  ],
+  "sourceUrl": "https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
+  "returnUrlEnv": "GUNNCHOS_PORTAL_URL",
+  "returnUrl": "https://gunnchos-site.gunnchos-finds.workers.dev",
+  "workerName": "gunnchos-gpu-nr-baseband"
+}

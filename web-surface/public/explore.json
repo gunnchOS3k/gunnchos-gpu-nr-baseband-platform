@@ -1,0 +1,227 @@
+{
+  "schema": "gunnchos.surfacekit.v2",
+  "measured_topology": false,
+  "diagram_note": "CPU synthetic benchmark files plus the blocked GPU gate. Median times are copied only for CPU PASS records. results/blocked_gpu/BLOCKED_GPU.json says GPU timings are absent. This is not a measured GPU baseband run.",
+  "nodes": [
+    {
+      "id": "ofdm",
+      "label": "CPU OFDM FFT"
+    },
+    {
+      "id": "eq",
+      "label": "CPU MMSE EQ"
+    },
+    {
+      "id": "gpu",
+      "label": "GPU gate blocked"
+    }
+  ],
+  "rows": [
+    {
+      "source": "results/benchmarks/cpu_crc24a.json",
+      "scenario_id": "cpu_crc24a",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "CRC24A standards-path",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 12.333,
+      "p99_us": 18.75
+    },
+    {
+      "source": "results/benchmarks/cpu_eq_mmse_4x4.json",
+      "scenario_id": "cpu_eq_mmse_4x4",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "4x4 MMSE",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 0.75,
+      "p99_us": 0.875
+    },
+    {
+      "source": "results/benchmarks/cpu_ldpc_nr_bg2.json",
+      "scenario_id": "cpu_ldpc_nr_bg2",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "NR QC-LDPC BG2 real tables zc=2 mb_use=6 min-sum; CompactQc educational-only",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 7,
+      "p99_us": 18.25
+    },
+    {
+      "source": "results/benchmarks/cpu_ldpc_nr_scaffold.json",
+      "scenario_id": "cpu_ldpc_nr_scaffold",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "NR QC-LDPC BG2-compact zc=2 min-sum; educational (16,8) not used",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 3.583,
+      "p99_us": 15.292
+    },
+    {
+      "source": "results/benchmarks/cpu_ldpc_short.json",
+      "scenario_id": "cpu_ldpc_short",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "educational (16,8) LDPC",
+      "status": "PASS",
+      "platform": "cpu",
+      "median_us": 0.291,
+      "p99_us": 2.5
+    },
+    {
+      "source": "results/benchmarks/cpu_memory_layout.json",
+      "scenario_id": "cpu_memory_layout_pageable_pinned_mock",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "CPU mock of pageable/pinned; not CUDA pinned host memory",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 63,
+      "p99_us": 200.25
+    },
+    {
+      "source": "results/benchmarks/cpu_ofdm_64.json",
+      "scenario_id": "cpu_ofdm_64",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "naive DFT OFDM",
+      "status": "PASS",
+      "platform": "cpu",
+      "median_us": 79.542,
+      "p99_us": 141.542
+    },
+    {
+      "source": "results/benchmarks/cpu_ofdm_64_fft.json",
+      "scenario_id": "cpu_ofdm_64_fft",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "radix-2 FFT OFDM (acceptance); naive DFT is educational-only",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 1.583,
+      "p99_us": 2.792
+    },
+    {
+      "source": "results/benchmarks/cpu_scheduler_mac.json",
+      "scenario_id": "cpu_scheduler_mac",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "MacScheduler beyond PF-ratio-only",
+      "status": "PASS",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic",
+      "median_us": 0.417,
+      "p99_us": 0.5
+    },
+    {
+      "source": "results/benchmarks/cpu_scheduler_pf.json",
+      "scenario_id": "cpu_scheduler_pf",
+      "evidence_class": "cpu_synthetic",
+      "ethical_framing": "PF CPU baseline",
+      "status": "PASS",
+      "platform": "cpu",
+      "median_us": 0.334,
+      "p99_us": 0.5
+    },
+    {
+      "source": "results/benchmarks/cuda_graphs_streams.json",
+      "scenario_id": "cuda_graphs_streams",
+      "evidence_class": "blocked_gate",
+      "ethical_framing": "No NVIDIA GPU/CUDA toolkit on Apple M2 host \u2014 no fabricated timings",
+      "status": "BLOCKED_HARDWARE",
+      "platform": "cpu",
+      "timing_source": "cpu_synthetic"
+    },
+    {
+      "source": "results/benchmarks/gate4_cuda_build.json",
+      "scenario_id": "gate4_cuda_build",
+      "evidence_class": "blocked_gate",
+      "ethical_framing": "No nvcc/nvidia-smi \u2014 CUDA static build blocked on this host",
+      "status": "BLOCKED_GPU"
+    },
+    {
+      "source": "results/benchmarks/gate4_gpu.json",
+      "scenario_id": "gate4_gpu",
+      "evidence_class": "blocked_gate",
+      "ethical_framing": "No NVIDIA GPU \u2014 never invent GPU timings",
+      "status": "BLOCKED_GPU"
+    },
+    {
+      "source": "results/blocked_gpu/BLOCKED_GPU.json",
+      "scenario_id": "GPU gate",
+      "evidence_class": "blocked_gate",
+      "ethical_framing": "No nvcc and/or no NVIDIA GPU. CUDA candidate sources may exist; GPU measured evidence is absent. Never invent kernel timings.",
+      "status": "BLOCKED_GPU",
+      "gpu_timings_present": false,
+      "numeric_gpu_claim": false
+    }
+  ],
+  "sources": [
+    "results/benchmarks/cpu_crc24a.json",
+    "results/benchmarks/cpu_eq_mmse_4x4.json",
+    "results/benchmarks/cpu_ldpc_nr_bg2.json",
+    "results/benchmarks/cpu_ldpc_nr_scaffold.json",
+    "results/benchmarks/cpu_ldpc_short.json",
+    "results/benchmarks/cpu_memory_layout.json",
+    "results/benchmarks/cpu_ofdm_64.json",
+    "results/benchmarks/cpu_ofdm_64_fft.json",
+    "results/benchmarks/cpu_scheduler_mac.json",
+    "results/benchmarks/cpu_scheduler_pf.json",
+    "results/benchmarks/cuda_graphs_streams.json",
+    "results/benchmarks/gate4_cuda_build.json",
+    "results/benchmarks/gate4_gpu.json",
+    "results/blocked_gpu/BLOCKED_GPU.json"
+  ],
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "body": "# gunnchos GPU NR Baseband Platform CPU-first, Aerial-aligned NR PUSCH-oriented baseband vertical slice with explicit separation of **educational substitute** vs **standards-path** vs **CPU validation** vs **CUDA candidate** vs **GPU measured** vs **3GPP conformance**. **Not a dissertation paper. Not 3GPP conformance. Not carrier-grade.** Supervisor path: [`docs/START_HERE_SUPERVISOR.md`](docs/START_HERE_SUPERVISOR.m"
+    },
+    {
+      "id": "host-notes",
+      "title": "Host notes",
+      "body": "- Apple M2 / CPU-only: build & test the CPU standards path. - Missing NVIDIA GPU \u2192 `BLOCKED_GPU` / `BLOCKED_HARDWARE` / `BLOCKED_GPU_RUNNER` JSON (never invent timings). - CompactQcLdpc + (16,8) LDPC live under `educational/` \u2014 **not** NR acceptance. - Real BG1/BG2 tables: `third_party/sionna_ldpc_codes/` (Apache-2.0) \u2192 `ldpc_bg_tables.hpp`."
+    },
+    {
+      "id": "quick-start",
+      "title": "Quick start",
+      "body": "make bootstrap test make validate-phy-independent make cuda-correctness cuda-equivalence # BLOCKED_HARDWARE on Mac make gate4-cpu-reference optimization-study-cpu orchestrator gate6-dry-run"
+    },
+    {
+      "id": "make-targets",
+      "title": "Make targets",
+      "body": "`bootstrap` `test` `reference-vectors` `sanitizers` `fuzz` `gate4-cpu-reference` `gate4-cuda-build` `gate4-gpu` `optimization-study-cpu` `optimization-study-gpu` `validate-phy-independent` `cuda-correctness` `cuda-equivalence` `gate6-dry-run` `paper` `artifact` `reproduce-clean` `blocked-gpu` `supervisor-cpu-gate` `claim-boundaries`"
+    },
+    {
+      "id": "status-vocabulary",
+      "title": "Status vocabulary",
+      "body": "`PASS` \u00b7 `FAIL` \u00b7 `BLOCKED_HARDWARE` \u00b7 `BLOCKED_GPU` \u00b7 `BLOCKED_GPU_RUNNER` \u00b7 `PENDING_LAB` \u00b7 `DOCUMENTED_IMPLEMENTATION` \u00b7 `EDUCATIONAL_ONLY` \u00b7 `REFERENCE_DEPENDENCY_UNAVAILABLE` \u00b7 `COMPARISON_PASS` / `COMPARISON_FAIL` \u00b7 `DOI_PENDING` \u00b7 `RELEASE_CANDIDATE_READY`"
+    },
+    {
+      "id": "license",
+      "title": "License",
+      "body": "MIT \u2014 see `LICENSE`. Third-party BG CSVs: Apache-2.0 (Sionna). Cite via `CITATION.cff`."
+    }
+  ],
+  "artifacts": [
+    "results/benchmarks/cpu_crc24a.json",
+    "results/benchmarks/cpu_eq_mmse_4x4.json",
+    "results/benchmarks/cpu_ldpc_nr_bg2.json",
+    "results/benchmarks/cpu_ldpc_nr_scaffold.json",
+    "results/benchmarks/cpu_ldpc_short.json",
+    "results/benchmarks/cpu_memory_layout.json",
+    "results/benchmarks/cpu_ofdm_64.json",
+    "results/benchmarks/cpu_ofdm_64_fft.json",
+    "results/benchmarks/cpu_scheduler_mac.json",
+    "results/benchmarks/cpu_scheduler_pf.json",
+    "results/benchmarks/cuda_graphs_streams.json",
+    "results/benchmarks/gate4_cuda_build.json"
+  ],
+  "methods": "Methods are the CPU benchmark JSON files in results/benchmarks and the blocked gate in results/blocked_gpu/BLOCKED_GPU.json. CPU rows with status PASS copy median_us from those files. The blocked-GPU file says gpu_timings_present is false and numeric_gpu_claim is false. No GPU kernel timing is added here.",
+  "cards": [],
+  "runtime_mode": "PRECOMPUTED",
+  "runtime_boot": false,
+  "evidence_class": "SYNTHETIC_SIM"
+}

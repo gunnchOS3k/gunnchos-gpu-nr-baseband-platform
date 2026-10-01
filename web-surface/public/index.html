@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>GPU NR baseband · gunnchOS</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-surfacekit="v2" data-theme="dark">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="top">
+    <p class="mark">gunnchOS</p>
+    <nav class="tools" aria-label="Surface">
+      <button type="button" id="theme-toggle">Light theme</button>
+      <a id="portal-return" href="#return" aria-label="Return to gunnchOS">← gunnchOS</a>
+    </nav>
+  </header>
+  <main id="content">
+    <p class="kicker">Research · STAGING_WORKER</p>
+    <h1>GPU NR baseband</h1>
+    <p class="lead">Educational and research baseband platform. The GPU and native radio code do not run on this Worker.</p>
+    
+    <p><a class="cta" id="primary-action" href="#explore">Explore evidence</a></p>
+    <section id="explore" aria-labelledby="explore-title">
+      <h2 id="explore-title">Explore evidence</h2>
+      <p>Evidence class: SYNTHETIC_SIM. The selector lists CPU synthetic benchmark rows. The GPU gate stays blocked.</p>
+      <p id="diagram-note"></p>
+      <div class="layout">
+        <div>
+          <svg id="diagram" role="img" aria-labelledby="diagram-note" viewBox="0 0 640 160"></svg>
+          <label for="row-select">Repository record</label>
+          <select id="row-select"></select>
+          <label for="row-filter">Filter records</label>
+          <input id="row-filter" type="search" placeholder="Filter by text in the repository records">
+        </div>
+        <div id="detail" tabindex="0" aria-live="polite"></div>
+      </div>
+      <div id="directory"></div>
+      <table id="evidence">
+        <caption>Records copied from this repository</caption>
+        <thead><tr id="evidence-head"></tr></thead>
+        <tbody id="evidence-body"></tbody>
+      </table>
+    </section>
+    <section id="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">Overview</h2>
+      <div class="cards"><article><h3>Overview</h3><p># gunnchos GPU NR Baseband Platform CPU-first, Aerial-aligned NR PUSCH-oriented baseband vertical slice with explicit separation of **educational substitute** vs **standards-path** vs **CPU validation** vs **CUDA candidate** vs **GPU measured** vs **3GPP conformance**. **Not a dissertation paper. Not 3GPP conformance. Not carrier-grade.** Supervisor path: [`docs/START_HERE_SUPERVISOR.md`](docs/START_HERE_SUPERVISOR.m</p></article><article><h3>Host notes</h3><p>- Apple M2 / CPU-only: build &amp; test the CPU standards path. - Missing NVIDIA GPU → `BLOCKED_GPU` / `BLOCKED_HARDWARE` / `BLOCKED_GPU_RUNNER` JSON (never invent timings). - CompactQcLdpc + (16,8) LDPC live under `educational/` — **not** NR acceptance. - Real BG1/BG2 tables: `third_party/sionna_ldpc_codes/` (Apache-2.0) → `ldpc_bg_tables.hpp`.</p></article><article><h3>Quick start</h3><p>make bootstrap test make validate-phy-independent make cuda-correctness cuda-equivalence # BLOCKED_HARDWARE on Mac make gate4-cpu-reference optimization-study-cpu orchestrator gate6-dry-run</p></article></div>
+    </section>
+    <section id="methods" aria-labelledby="methods-title">
+      <h2 id="methods-title">Methods</h2>
+      <p>Methods are the CPU benchmark JSON files in results/benchmarks and the blocked gate in results/blocked_gpu/BLOCKED_GPU.json. CPU rows with status PASS copy median_us from those files. The blocked-GPU file says gpu_timings_present is false and numeric_gpu_claim is false. No GPU kernel timing is added here.</p>
+      <p>Native research runtimes stay on a local checkout. This page shows repository records only.</p>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Artifacts</h2>
+      <ul><li><code>results/benchmarks/cpu_crc24a.json</code></li><li><code>results/benchmarks/cpu_eq_mmse_4x4.json</code></li><li><code>results/benchmarks/cpu_ldpc_nr_bg2.json</code></li><li><code>results/benchmarks/cpu_ldpc_nr_scaffold.json</code></li><li><code>results/benchmarks/cpu_ldpc_short.json</code></li><li><code>results/benchmarks/cpu_memory_layout.json</code></li><li><code>results/benchmarks/cpu_ofdm_64.json</code></li><li><code>results/benchmarks/cpu_ofdm_64_fft.json</code></li><li><code>results/benchmarks/cpu_scheduler_mac.json</code></li><li><code>results/benchmarks/cpu_scheduler_pf.json</code></li><li><code>results/benchmarks/cuda_graphs_streams.json</code></li><li><code>results/benchmarks/gate4_cuda_build.json</code></li></ul>
+    </section>
+    <section id="source" aria-labelledby="source-title">
+      <h2 id="source-title">Source</h2>
+      <p><a href="https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform">Source repository</a></p>
+      <p>Pinned source <code>3931f51d43b7bee87db6d710a9df5a7c1136fcfa</code></p>
+    </section>
+    <section id="limits" aria-labelledby="limits-title">
+      <h2 id="limits-title">Limitations</h2>
+      <ul><li>No live gNodeB is claimed</li><li>Native and GPU code stay off this Worker</li></ul>
+    </section>
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About / Build status / Evidence</h2>
+      <h2 id="what">What is this?</h2>
+      <p>Educational and research baseband platform. The GPU and native radio code do not run on this Worker.</p>
+      <p>The research code is not executing here. This is a research surface.</p>
+      <h2 id="why">Why does it exist?</h2>
+      <p>It gives this repository a public web surface inside the gunnchOS ecosystem without pretending the original runtime runs on Cloudflare Workers.</p>
+      <h2 id="today">What can I actually do with it today?</h2>
+      <p>Use the primary action to inspect repository records, then open the source for the local toolchain.</p>
+      <h2 id="unfinished">What is not finished?</h2>
+      <ul><li>No live gNodeB is claimed</li><li>Native and GPU code stay off this Worker</li></ul>
+      <p class="badge">STAGING_WORKER</p>
+      <p>Runtime mode on this page: PRECOMPUTED. No remote model call is made.</p>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
